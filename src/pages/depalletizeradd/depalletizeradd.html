@@ -1,0 +1,67 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-buttons large>
+          <button icon-left ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+              <ion-title>Add depalletizer</ion-title>
+            </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+      <form [formGroup]="depalletizerForm" (ngSubmit)="onSubmit()">
+              <ion-list>
+                <ion-item>
+                  <ion-label floating>Date</ion-label>
+                  <ion-datetime displayFormat="" pickerFormat="MMM DD, YYYY" formControlName="date"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                      <ion-label floating>Operator</ion-label>
+                      <ion-select formControlName="operator">
+                        <ion-option
+                          *ngFor="let oper of operators"
+                          [value]="oper">{{ oper }}</ion-option>
+                      </ion-select>
+                    </ion-item>
+
+                <ion-item>
+                  <ion-label floating>Product</ion-label>
+                  <ion-input type="text" formControlName="product"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label floating>Bottle Waste</ion-label>
+                  <ion-input type="text" formControlName="bottlewaste"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>SR. NO</ion-label>
+                  <ion-input type="text" formControlName="sno"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Pallet No</ion-label>
+                  <ion-input type="text" formControlName="pno"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Pallet QTY</ion-label>
+                  <ion-input type="text" formControlName="pqty"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Leader Boards</ion-label>
+                  <ion-input type="text" formControlName="lboards"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Top Boards</ion-label>
+                  <ion-input type="text" formControlName="tboards"></ion-input>
+                </ion-item>
+              </ion-list>
+
+              <button
+                type="submit"
+                ion-button
+                block
+                [disabled]="!depalletizerForm.valid"> Add Depalletizer </button>
+            </form>
+</ion-content>

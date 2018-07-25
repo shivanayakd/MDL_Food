@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-buttons large>
+          <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+              <ion-title>Visitor Details</ion-title>
+            </button>
+      </ion-buttons>
+  </ion-navbar>
+ </ion-header>
+
+<ion-content padding>
+  <ion-card (click)="openModal(visitor)" *ngFor="let visitor of visitors">
+    <ion-item *ngIf="visitor?.name">
+        <ion-icon name="person" item-start></ion-icon>
+      <h2 color="dark" padding-top>{{ visitor.name }}</h2>
+      <p>{{ visitor.date }}</p>
+    </ion-item>
+  
+    <ion-row *ngIf="visitor?.name">
+      <ion-col col-6 text-left>
+        <button ion-button color="blueclr" icon-start clear small>
+          <ion-icon name="arrow-down"></ion-icon>
+          <div> {{ visitor.timein }}</div>
+        </button>
+      </ion-col>
+      
+      <ion-col col-6 text-right>
+        <button ion-button color="danger" icon-start clear small>
+          <ion-icon name="arrow-up"></ion-icon>
+          <div> {{ visitor.timeout }}</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+</ion-content>

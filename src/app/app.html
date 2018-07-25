@@ -1,1 +1,35 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="nav" type="push">
+    <ion-header>
+    <ion-item no-lines text-center color="primary">
+      <img src="assets/imgs/makan_logo.png"/>
+      <ion-card-content color="primary">
+        <p>Makers of</p>
+          <ion-title>FINE BEVERAGES</ion-title>
+      </ion-card-content>
+    </ion-item>
+  </ion-header> 
+    <ion-content>
+      <ion-list>
+        <button icon-left ion-item menuClose (click)="openPage(rootPage)">
+        <ion-icon name="home"></ion-icon>
+          Home
+        </button>
+        <button icon-left ion-item menuClose (click)="openPage(visitorRecords)">
+            <ion-icon name="book"></ion-icon>
+            Visitor Records
+          </button>
+        <button icon-left ion-item menuClose (click)="openPage(depallatizer)">
+            <ion-icon name="albums"></ion-icon>
+            De-Palletizer Report 
+          </button>
+        <button icon-left ion-item menuClose (click)="openPage(about)">
+            <ion-icon name="information-circle"></ion-icon>
+            About
+          </button>
+      </ion-list>
+    </ion-content>
+  
+  </ion-menu>
+  
+  <!-- <ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav> -->
+<ion-nav [root]="rootPage" #nav></ion-nav>
